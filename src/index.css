@@ -2,9 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+  width: 100%;
+  height: 100%;
+  /* Empêcher le zoom par pinch sur mobile */
+  touch-action: manipulation;
+}
+
 body {
   background-color: #f9fafb; /* gray-50 */
   color: #111827; /* gray-900 */
+  /* Éviter les problèmes de zooming sur iOS */
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* ========================================
@@ -31,6 +41,8 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+  /* Empêcher le double-tap zoom sur images */
+  -webkit-touch-callout: none;
 }
 
 /* Prévention du zoom sur input sur mobile */

@@ -37,6 +37,12 @@
   /* Masquer la scrollbar */
   scrollbar-width: none;
   -ms-overflow-style: none;
+  
+  /* Empêcher le zoom tactile - autoriser seulement le pan horizontal */
+  touch-action: pan-x;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 /* Masquer scrollbar WebKit (Chrome, Safari, Edge) */
