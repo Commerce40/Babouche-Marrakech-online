@@ -84,40 +84,66 @@ const ProductCard = ({ product, lang, t, isSlider = false }) => {
         )}
       </div>
 
-      <div className="p-3 sm:p-4 flex flex-col flex-grow">
-        <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-2 line-clamp-2">{product.title[lang]}</h3>
-        <div className="flex items-center gap-2 mb-3 flex-wrap">
-          <span className="text-indigo-600 font-bold text-sm sm:text-base">{product.price.toLocaleString()} FCFA</span>
+      <div className="p-4 sm:p-5 flex flex-col flex-grow gap-3">
+        {/* Titre */}
+        <h3 className="text-base sm:text-lg font-bold text-gray-900 leading-tight line-clamp-2">
+          {product.title[lang]}
+        </h3>
+        
+        {/* Prix avec badge promo */}
+        <div className="flex items-center gap-2">
+          <span className="text-2xl font-bold text-indigo-600">
+            {product.price.toLocaleString('fr-FR')} FCFA
+          </span>
           {product.oldPrice && (
-            <span className="text-gray-400 line-through text-xs sm:text-sm">{product.oldPrice.toLocaleString()} FCFA</span>
+            <span className="text-gray-400 line-through text-sm">
+              {product.oldPrice.toLocaleString('fr-FR')} FCFA
+            </span>
           )}
         </div>
 
+        {/* Points forts si disponibles */}
+        {product.pointsForts && product.pointsForts.length > 0 && (
+          <div className="pt-2 border-t border-gray-200">
+            <ul className="space-y-1">
+              {product.pointsForts.slice(0, 2).map((point, idx) => (
+                <li key={idx} className="text-xs text-green-700 flex items-center gap-1">
+                  <span className="text-green-600 font-bold">✓</span>
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         {/* Couleurs disponibles */}
         {product.colors && product.colors.length > 0 && (
-          <div className="mb-3">
-            <p className="text-xs text-gray-600 mb-2">Couleurs disponibles:</p>
-            <div className="flex flex-wrap gap-2">
-              {product.colors.slice(0, 3).map((color) => (
+          <div className="pt-2">
+            <p className="text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">
+              {product.colors.length} couleurs
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {product.colors.slice(0, 4).map((color) => (
                 <span
                   key={color.id}
-                  className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-md"
+                  className="text-xs font-medium bg-indigo-50 text-indigo-700 px-2.5 py-1.5 rounded-md border border-indigo-200"
                 >
                   {color.name[lang]}
                 </span>
               ))}
-              {product.colors.length > 3 && (
-                <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-md">
-                  +{product.colors.length - 3}
+              {product.colors.length > 4 && (
+                <span className="text-xs font-medium bg-gray-100 text-gray-700 px-2.5 py-1.5 rounded-md">
+                  +{product.colors.length - 4}
                 </span>
               )}
             </div>
           </div>
         )}
 
+        {/* Bouton Call-to-Action */}
         <button 
           onClick={handleQuickAdd}
-          className="w-full bg-gray-900 text-white py-2 sm:py-2.5 px-3 rounded-lg font-medium text-sm sm:text-base hover:bg-gray-800 transition-colors mt-auto"
+          className="w-full bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white py-3 px-4 rounded-lg font-semibold text-base shadow-md hover:shadow-lg transition-all duration-200 mt-auto transform hover:scale-[1.02]"
         >
           {t.addToCart}
         </button>

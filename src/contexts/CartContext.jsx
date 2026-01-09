@@ -14,6 +14,7 @@ export const CartProvider = ({ children }) => {
     return saved ? JSON.parse(saved) : [];
   });
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [selectedDelivery, setSelectedDelivery] = useState('immediate'); // Par défaut: livraison immédiate
 
   useEffect(() => {
     localStorage.setItem('bm_cart_static', JSON.stringify(cart));
@@ -45,12 +46,38 @@ export const CartProvider = ({ children }) => {
     setCart(prev => prev.map((item, i) => i === index ? { ...item, qty: newQty } : item));
   };
 
-  const cartTotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+  // Calcul prix produits
+  const productTotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+
+  // Calcul frais livraison
+  const getDeliveryPrice = (deliveryId) => {
+    const prices = {
+      'immediate': 2500,
+      'afternoon': 1500,
+      'evening': 1500,
+    };
+    return prices[deliveryId] || 0;
+  };
+
+  const deliveryPrice = getDeliveryPrice(selectedDelivery);
+
+  // Total final (produits + livraison)
+  const cartTotal = productTotal + (cart.length > 0 ? deliveryPrice : 0);
 
   return (
     <CartContext.Provider value={{ 
-      cart, addToCart, removeFromCart, updateQty, 
-      isCartOpen, setIsCartOpen, cartTotal 
+      cart, 
+      addToCart, 
+      removeFromCart, 
+      updateQty, 
+      isCartOpen, 
+      setIsCartOpen, 
+      cartTotal,
+      productTotal,
+      deliveryPrice,
+      selectedDelivery,
+      setSelectedDelivery,
+      getDeliveryPrice,
     }}>
       {children}
     </CartContext.Provider>
