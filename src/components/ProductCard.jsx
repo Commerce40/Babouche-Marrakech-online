@@ -38,8 +38,8 @@ const ProductCard = ({ product, lang, t, isSlider = false }) => {
   const linkPath = `/produit/${slug}`;
 
   return (
-    <Link to={linkPath} className="group block bg-white rounded-xl shadow-sm border overflow-hidden hover:shadow-md transition-all h-full">
-      <div className="aspect-square bg-gray-100 overflow-hidden relative">
+    <Link to={linkPath} className="group flex flex-col bg-white rounded-xl shadow-sm border overflow-hidden hover:shadow-md transition-all h-full">
+      <div className="relative w-full aspect-square bg-gray-100 overflow-hidden flex-shrink-0">
         {/* Image avec lazy loading */}
         <img 
           src={images[currentImgIndex]} 
@@ -84,12 +84,12 @@ const ProductCard = ({ product, lang, t, isSlider = false }) => {
         )}
       </div>
 
-      <div className="p-4">
-        <h3 className="text-lg font-bold text-gray-900 mb-1 line-clamp-1">{product.title[lang]}</h3>
-        <div className="flex items-center gap-2 mb-3">
-          <span className="text-indigo-600 font-bold">{product.price.toLocaleString()} FCFA</span>
+      <div className="p-3 sm:p-4 flex flex-col flex-grow">
+        <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-2 line-clamp-2">{product.title[lang]}</h3>
+        <div className="flex items-center gap-2 mb-3 flex-wrap">
+          <span className="text-indigo-600 font-bold text-sm sm:text-base">{product.price.toLocaleString()} FCFA</span>
           {product.oldPrice && (
-            <span className="text-gray-400 line-through text-sm">{product.oldPrice.toLocaleString()} FCFA</span>
+            <span className="text-gray-400 line-through text-xs sm:text-sm">{product.oldPrice.toLocaleString()} FCFA</span>
           )}
         </div>
 
@@ -117,7 +117,7 @@ const ProductCard = ({ product, lang, t, isSlider = false }) => {
 
         <button 
           onClick={handleQuickAdd}
-          className="w-full bg-gray-900 text-white py-2 rounded-lg font-medium hover:bg-gray-800 transition-colors"
+          className="w-full bg-gray-900 text-white py-2 sm:py-2.5 px-3 rounded-lg font-medium text-sm sm:text-base hover:bg-gray-800 transition-colors mt-auto"
         >
           {t.addToCart}
         </button>

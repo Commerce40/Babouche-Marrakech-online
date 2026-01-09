@@ -52,11 +52,25 @@
 
 /* Chaque item du slider */
 .product-slider-item {
-  min-width: 160px;
+  min-width: 140px;
+  max-width: 140px;
   flex-shrink: 0;
   scroll-snap-align: start;
   scroll-snap-stop: always;
   aspect-ratio: 1;
+}
+
+/* Sur tablettes et petits téléphones (max-width: 380px) */
+@media (max-width: 380px) {
+  .product-slider-item {
+    min-width: 130px;
+    max-width: 130px;
+  }
+  
+  .product-slider {
+    gap: 0.75rem;
+    padding: 0 0.75rem 0.5rem 0.75rem;
+  }
 }
 
 /* Gradient d'indication pour montrer qu'il y a du contenu à droite */

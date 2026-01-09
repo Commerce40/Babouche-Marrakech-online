@@ -32,7 +32,7 @@ export const IMAGES = {
   BABOUCHE_MERCEDES_ROUGE_LISSE_SIDE: '/images/babouche-marocaine-mercedes-rouge-bordeaux-lisse-side.webp',
   BABOUCHE_MERCEDES_ROUGE_LISSE_VU: '/images/babouche-marocaine-mercedes-rouge-bordeaux-lisse-vu.jpeg',
   BABOUCHE_MARRAKECH_DAIM_NOIR: '/images/babouche-marrakech-en-daim-noir-brodé.jpg',
-  BANNIERE_BABOUCHE: '/images/bannière-babouche-marrakech.jpg',
+  BANNIERE_BABOUCHE: '/images/banniere-babouche-marrakech.jpg',
   DJELLABA_BEIGE: '/images/Djellaba-marocain-beige-motif.jpg',
   DJELLABA_BLEU: '/images/Djellaba-marocain-bleu-motif.jpg',
   DJELLABA_CLAIR: '/images/Djellaba-marocain-clair-motif.jpg',
