@@ -23,7 +23,7 @@ const Header = ({ lang, setLang, t }) => {
         {/* LOGO */}
         <Link to="/" className="flex items-center gap-2 group">
           <img
-            src="/public/android-chrome-512x512.png" 
+            src="/public/Logo.png" 
             alt="Babouche Marrakech"
             className="h-10 w-auto object-contain group-hover:scale-105 transition-transform"
           />
