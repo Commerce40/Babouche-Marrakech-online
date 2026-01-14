@@ -52,8 +52,8 @@
 
 /* Chaque item du slider - hauteur adaptée pour contenir le contenu */
 .product-slider-item {
-  min-width: 140px;
-  max-width: 140px;
+  min-width: 260px;
+  max-width: 260px;
   flex-shrink: 0;
   scroll-snap-align: start;
   scroll-snap-stop: always;
@@ -66,8 +66,8 @@
 /* Sur tablettes et petits téléphones (max-width: 380px) */
 @media (max-width: 380px) {
   .product-slider-item {
-    min-width: 130px;
-    max-width: 130px;
+    min-width: 220px;
+    max-width: 220px;
     min-height: 270px;
   }
   

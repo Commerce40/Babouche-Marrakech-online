@@ -1,4 +1,3 @@
-jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -63,13 +62,12 @@ export const Hero = ({ t }) => {
         
         <div className="relative rounded-xl overflow-hidden shadow-lg aspect-[4/3] bg-gray-100">
           <motion.img
-  src={IMAGES.BANNIERE_BABOUCHE}
-  alt="Babouches marocaines artisanales"
-  className="object-contain w-full h-full"
-  loading="eager"
-/>
+            src="/images/banniere-babouche-marrakech.jpg"
+            alt="Babouches marocaines artisanales"
+            className="object-contain w-full h-full"
+            loading="eager"
             whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 200, damping: 20 }}
+            transition={{ type: 'spring', stiffness: 200, damping: 20 }}
           />
         </div>
       </motion.div>

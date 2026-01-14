@@ -2,7 +2,7 @@ import React from 'react';
 import ProductCard from './ProductCard';
 import './ProductSlider.css';
 
-const ProductSlider = ({ products, lang, t, title }) => {
+const ProductSlider = ({ products, lang, t, title, compact = false }) => {
   return (
     <div className="product-slider-section">
       {title && <h2 className="product-slider-title">{title}</h2>}
@@ -11,7 +11,7 @@ const ProductSlider = ({ products, lang, t, title }) => {
         <div className="product-slider">
           {products.map(product => (
             <div key={product.id} className="product-slider-item">
-              <ProductCard product={product} lang={lang} t={t} isSlider={true} />
+              <ProductCard product={product} lang={lang} t={t} isSlider={true} compact={compact} />
             </div>
           ))}
         </div>

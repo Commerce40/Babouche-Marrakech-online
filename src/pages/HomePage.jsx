@@ -48,6 +48,7 @@ const HomePage = ({ lang, t }) => {
               lang={lang} 
               t={t}
               title="Nos clients ont aussi acheté"
+              compact={true}
             />
           </div>
         </div>
