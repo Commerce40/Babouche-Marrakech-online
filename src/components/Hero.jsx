@@ -1,76 +1,84 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { IMAGES } from '../data/products';
-
-const CONTACT_WHATSAPP = "https://wa.me/221761421653?text="; // Assurez-vous que ce numéro est le bon
 
 export const Hero = ({ t }) => {
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16 pt-4">
-      <motion.div 
-        className="order-2 lg:order-1"
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-      >
-        <span className="inline-block px-3 py-1 text-xs font-semibold text-indigo-600 bg-indigo-50 rounded-full mb-4">Nouvelle Collection</span>
-        
-        {/* H1 : Babouches Marocaines Artisanales pour Hommes */}
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">{t('heroTitle')}</h2>
-        
-        {/* Sous-titre : Proposition de Valeur */}
-        <p className="mt-4 text-xl font-medium text-indigo-700">{t('heroSubtitle')}</p> 
+    <section className="relative min-h-[85svh] flex items-center overflow-hidden pt-24">
+      
+      {/* IMAGE HERO (FIABLE SUR MOBILE & DESKTOP) */}
+      <img
+        src="/images/banniere-babouche-marrakech.jpg"
+        alt="Babouche Marrakech – Babouches marocaines artisanales"
+        className="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
+      />
 
-        <div className="mt-8 flex flex-wrap gap-4 items-center">
-          <Link 
-            to="/collection"
-            className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-lg rounded-lg shadow-xl hover:shadow-2xl transition-all transform hover:scale-[1.01]"
-          >
-            Commander Maintenant
-          </Link>
-          
-          <Link 
-            to="/collection"
-            className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-medium rounded-lg shadow-sm hover:shadow-md transition-all"
-          >
-            Voir la Collection
-          </Link>
-        </div>
+      {/* OVERLAY POUR LISIBILITÉ */}
+      <div className="absolute inset-0 bg-black/55" />
 
-        {/* Mise en évidence des promesses de valeur */}
-        <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-500 border-t pt-6">
-          <li className="flex items-center gap-2 text-gray-800 font-medium">
-            <span className="h-1.5 w-1.5 rounded-full bg-green-500"></span> 100% Cuir Véritable
-          </li>
-          <li className="flex items-center gap-2 text-gray-800 font-medium">
-            <span className="h-1.5 w-1.5 rounded-full bg-green-500"></span> Support Client WhatsApp Dakar
-          </li>
-          <li className="flex items-center gap-2 text-gray-800 font-medium">
-            <span className="h-1.5 w-1.5 rounded-full bg-green-500"></span> Paiement à la Livraison
-          </li>
+      {/* CONTENU */}
+      <div className="relative z-10 w-full max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto px-6 text-center sm:text-left">
+        
+        {/* BADGE */}
+        <motion.span
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-block mb-4 px-4 py-1 text-xs font-semibold tracking-wide text-white bg-indigo-600 rounded-full"
+        >
+          Nouvelle collection
+        </motion.span>
+
+        {/* TITRE */}
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight drop-shadow-lg"
+        >
+          {t && (t.heroTitle || t('heroTitle'))}
+        </motion.h1>
+
+        {/* SOUS-TITRE */}
+        <motion.p
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mt-4 text-base sm:text-lg text-white/90"
+        >
+          {t && (t.heroSubtitle || t('heroSubtitle'))}
+        </motion.p>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-6 flex flex-col sm:flex-row gap-4"
+        >
+          <Link
+            to="/collection"
+            className="w-full sm:w-auto px-6 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg shadow-lg transition"
+          >
+            Commander maintenant
+          </Link>
+
+          <Link
+            to="/collection"
+            className="w-full sm:w-auto px-6 py-4 bg-white/90 hover:bg-white text-gray-900 font-semibold rounded-lg shadow transition"
+          >
+            Voir la collection
+          </Link>
+        </motion.div>
+
+        {/* PROMESSES */}
+        <ul className="mt-8 flex flex-col sm:flex-row gap-2 sm:gap-6 text-sm text-white/90">
+          <li>✔ 100 % cuir véritable</li>
+          <li>✔ Paiement à la livraison</li>
+          <li>✔ Livraison rapide à Dakar</li>
         </ul>
-      </motion.div>
-
-      <motion.div 
-        className="order-1 lg:order-2 relative group"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
-      >
-        <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-pink-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
-        
-        <div className="relative rounded-xl overflow-hidden shadow-lg aspect-[4/3] bg-gray-100">
-          <motion.img
-            src="/images/banniere-babouche-marrakech.jpg"
-            alt="Babouches marocaines artisanales"
-            className="object-contain w-full h-full"
-            loading="eager"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-          />
-        </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

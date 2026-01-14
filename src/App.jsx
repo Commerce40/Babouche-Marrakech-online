@@ -15,6 +15,7 @@ import ProductDetailPage from './pages/ProductDetailPage';
 import AboutPage from './pages/AboutPage';
 import SizeGuidePage from './pages/SizeGuidePage';
 import TermsPage from './pages/TermsPage';
+import CollectionPage from './pages/CollectionPage';
 
 // Wrapper pour déclencher le pixel Facebook à chaque changement de page
 const PageTracker = () => {
@@ -61,6 +62,7 @@ function App() {
             
             {/* Pages Statiques */}
             <Route path="/a-propos" element={<AboutPage t={t} />} />
+            <Route path="/collection" element={<CollectionPage lang={lang} t={t} />} />
             <Route path="/guide-des-tailles" element={<SizeGuidePage t={t} />} />
             <Route path="/cgv" element={<TermsPage t={t} />} />
           </Routes>

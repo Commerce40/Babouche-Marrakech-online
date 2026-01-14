@@ -89,7 +89,7 @@ const ProductCard = ({ product, lang, t, isSlider = false, compact = false }) =>
           onClick={(e) => { e.preventDefault(); window.location.href = linkPath; }}
           className={`w-full font-semibold text-base transition-all duration-200 transform hover:scale-[1.02] shadow-md hover:shadow-lg rounded-lg mt-auto bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white py-3 px-4`}
         >
-          Voir la babouche
+          {product.category === 'jellabas' ? 'Voir les Djellabas' : 'Voir la babouche'}
         </button>
       </div>
     </Link>
