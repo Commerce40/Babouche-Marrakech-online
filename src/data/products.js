@@ -73,12 +73,12 @@ export const PRODUCTS = [
       ar: "بابوش مراكشي كلاسيك", 
       wo: "Babouche Marocaine Classique" 
     },
-    price: 12000,
+    price: 10000,
     oldPrice: 15000, 
     category: 'babouches',
     type: 'shoes',
     shippingInfo: "Livraison gratuite sur Dakar",
-    specialOffer: "3 paires = 30 000 FCFA",
+    specialOffer: "3 paires = 27 00 FCFA",
     pointsForts: ["Cuir véritable", "Fabrication artisanale marocaine", "Confort optimal", "Design intemporel"],
     description: {
       fr: "La babouche classique marocaine authentique. Conçue pour les hommes qui recherchent une chaussure confortable, élégante et pratique au quotidien. Elle offre un excellent maintien du pied tout en restant légère et agréable à porter.",
@@ -149,7 +149,7 @@ export const PRODUCTS = [
       ar: "بابوش مراكشي مرسيدس", 
       wo: "Babouche Marocaine Mercedes" 
     },
-    price: 18000,
+    price: 16500,
     oldPrice: 22000,
     category: 'babouches',
     type: 'shoes',
