@@ -37,15 +37,15 @@ const ProductCard = ({ product, lang, t, isSlider = false, compact = false }) =>
 
         {images.length > 1 && !isSlider && (
           <>
-            <button onClick={prevImage} className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 p-1 rounded-full shadow hover:bg-white opacity-0 group-hover:opacity-100 transition-opacity">
+            <button onClick={prevImage} className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 p-1 rounded-full shadow hover:bg-white md:opacity-0 group-hover:opacity-100 opacity-100 transition-opacity">
               <ChevronLeft size={20} />
             </button>
-            <button onClick={nextImage} className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 p-1 rounded-full shadow hover:bg-white opacity-0 group-hover:opacity-100 transition-opacity">
+            <button onClick={nextImage} className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 p-1 rounded-full shadow hover:bg-white md:opacity-0 group-hover:opacity-100 opacity-100 transition-opacity">
               <ChevronRight size={20} />
             </button>
-            <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1 md:opacity-0 group-hover:opacity-100 opacity-100 transition-opacity">
               {images.map((_, idx) => (
-                <div key={idx} className={`h-1.5 rounded-full transition-all ${idx === currentImgIndex ? 'w-3 bg-white' : 'w-1.5 bg-white/50'}`} />
+                <div key={idx} className={`h-1.5 rounded-full transition-all bg-black bg-opacity-30 ${idx === currentImgIndex ? 'w-3 bg-white border border-black border-opacity-20' : 'w-1.5 bg-white/70'}`} />
               ))}
             </div>
           </>
@@ -87,7 +87,7 @@ const ProductCard = ({ product, lang, t, isSlider = false, compact = false }) =>
 
         <button
           onClick={(e) => { e.preventDefault(); window.location.href = linkPath; }}
-          className={`w-full font-semibold text-base transition-all duration-200 transform hover:scale-[1.02] shadow-md hover:shadow-lg rounded-lg mt-auto bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white py-3 px-4`}
+          className={`w-full font-bold text-base transition-all duration-200 shadow-md hover:shadow-lg rounded-lg mt-auto bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4`}
         >
           {product.category === 'jellabas' ? 'Voir les Djellabas' : 'Voir la babouche'}
         </button>

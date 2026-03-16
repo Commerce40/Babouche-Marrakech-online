@@ -119,7 +119,7 @@ const Cart = ({ lang, t }) => {
                 <button 
                   onClick={handleInitiateCheckout}
                   disabled={cart.length === 0}
-                  className="w-full bg-green-600 text-white py-3 rounded-xl font-bold hover:bg-green-700 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold hover:bg-indigo-700 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {t.checkout}
                 </button>

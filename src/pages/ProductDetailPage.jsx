@@ -161,25 +161,6 @@ const ProductDetailPage = ({ lang, t }) => {
               )}
             </div>
 
-            {/* Points forts */}
-            {product.pointsForts && (
-              <div className="mb-8 bg-indigo-50 rounded-lg p-4">
-                <h3 className="font-semibold text-gray-900 mb-3">Caractéristiques</h3>
-                <ul className="space-y-2">
-                  {product.pointsForts.map((point, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-gray-700">
-                      <span className="text-indigo-600 text-xl">✓</span> {point}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {/* Description */}
-            <div className="mb-8 pb-8 border-b">
-              <p className="text-gray-700 leading-relaxed">{product.description[lang]}</p>
-            </div>
-
             {/* Sélection couleur */}
             {product.colors && product.colors.length > 0 && (
               <div className="mb-8">
@@ -281,6 +262,25 @@ const ProductDetailPage = ({ lang, t }) => {
                 ✓ Produit ajouté au panier!
               </motion.div>
             )}
+
+            {/* Points forts */}
+            {product.pointsForts && (
+              <div className="mb-8 bg-indigo-50 rounded-lg p-4">
+                <h3 className="font-semibold text-gray-900 mb-3">Caractéristiques</h3>
+                <ul className="space-y-2">
+                  {product.pointsForts.map((point, idx) => (
+                    <li key={idx} className="flex items-center gap-2 text-gray-700">
+                      <span className="text-indigo-600 text-xl">✓</span> {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Description */}
+            <div className="mb-8 pb-8 border-b">
+              <p className="text-gray-700 leading-relaxed">{product.description[lang]}</p>
+            </div>
 
             {/* Infos supplémentaires */}
             {product.shippingInfo && (

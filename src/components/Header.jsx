@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ShoppingBag, Menu } from 'lucide-react'; 
 import { useCart } from '../contexts/CartContext';
 
 const Header = ({ lang, setLang, t }) => {
   const { cart, setIsCartOpen } = useCart();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const cartCount = cart.reduce((acc, item) => acc + item.qty, 0);
   const location = useLocation();
 
@@ -21,7 +22,7 @@ const Header = ({ lang, setLang, t }) => {
       <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
         
         {/* LOGO */}
-        <Link to="/" className="flex items-center gap-2 group">
+        <Link to="/" className="flex items-center gap-2 group" onClick={() => setIsMobileMenuOpen(false)}>
           <img
             src="/images/logo-babouche-marrakech.png" 
             alt="Babouche Marrakech"
@@ -54,12 +55,42 @@ const Header = ({ lang, setLang, t }) => {
                 )}
             </button>
             
-            {/* Menu Mobile (Optionnel si vous voulez un menu burger plus tard) */}
-            <button className="md:hidden p-2 text-gray-600">
+            {/* Menu Mobile */}
+            <button 
+              className="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
                <Menu size={24} />
             </button>
         </div>
       </div>
+
+      {/* --- NAVIGATION MOBILE (Menu déroulant) --- */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-b border-gray-100 py-4 px-6 flex flex-col gap-4 animate-in slide-in-from-top-2">
+          <Link 
+            to="/" 
+            className={`block py-2 border-b border-gray-50 ${location.pathname === '/' ? 'text-indigo-600 font-bold' : 'text-gray-700'}`}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Accueil
+          </Link>
+          <Link 
+            to="/a-propos" 
+            className={`block py-2 border-b border-gray-50 ${location.pathname === '/a-propos' ? 'text-indigo-600 font-bold' : 'text-gray-700'}`}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Notre Histoire
+          </Link>
+          <Link 
+            to="/guide-des-tailles" 
+            className={`block py-2 border-b border-gray-50 ${location.pathname === '/guide-des-tailles' ? 'text-indigo-600 font-bold' : 'text-gray-700'}`}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Guide des Tailles
+          </Link>
+        </div>
+      )}
     </header>
   );
 };

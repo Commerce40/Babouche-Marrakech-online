@@ -10,7 +10,7 @@ export const DeliveryOptions = ({ selectedDelivery, onSelect, t = {} }) => {
     {
       id: 'immediate',
       label: { fr: '🚀 Livraison Immédiate', en: '🚀 Immediate Delivery' },
-      description: { fr: 'Livré dans les 2-4h', en: 'Delivered in 2-4h' },
+      description: { fr: 'Livré en 45 min', en: 'Delivered in 45 min' },
       price: 2500,
       icon: '🚀',
     },
