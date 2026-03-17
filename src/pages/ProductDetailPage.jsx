@@ -10,13 +10,13 @@ const ProductDetailPage = ({ lang, t }) => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const product = PRODUCTS.find(p => p.slug === slug);
-  
+
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [mainImage, setMainImage] = useState('');
   const [quantity, setQuantity] = useState(1);
   const [showAddedMessage, setShowAddedMessage] = useState(false);
-  
+
   const { addToCart } = useCart();
   const { trackEvent } = usePixel();
 
@@ -64,7 +64,7 @@ const ProductDetailPage = ({ lang, t }) => {
       selectedSize: selectedSize,
       quantity: quantity,
     };
-    
+
     addToCart(cartItem, quantity, selectedSize, selectedColor.id);
     trackEvent('AddToCart', {
       content_ids: [product.sku],
@@ -80,7 +80,7 @@ const ProductDetailPage = ({ lang, t }) => {
     const message = encodeURIComponent(
       `Bonjour! Je suis intéressé par le produit: ${product.title[lang]}. Je cherche une couleur ou modèle spécifique qui n'est pas disponible sur le site. Pouvez-vous m'aider?`
     );
-    window.open(`https://wa.me/221761421653?text=${message}`, '_blank');
+    window.open(`https://wa.me/221768352101?text=${message}`, '_blank');
   };
 
   const isShoesProduct = product.type === 'shoes';
@@ -124,9 +124,8 @@ const ProductDetailPage = ({ lang, t }) => {
                   <button
                     key={idx}
                     onClick={() => setMainImage(img)}
-                    className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                      mainImage === img ? 'border-indigo-600' : 'border-gray-300'
-                    }`}
+                    className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${mainImage === img ? 'border-indigo-600' : 'border-gray-300'
+                      }`}
                   >
                     <img src={img} alt={`Vue ${idx + 1}`} className="w-full h-full object-cover" />
                   </button>
@@ -170,11 +169,10 @@ const ProductDetailPage = ({ lang, t }) => {
                     <button
                       key={color.id}
                       onClick={() => handleColorChange(color)}
-                      className={`px-4 py-2 rounded-lg border-2 transition-all font-medium ${
-                        selectedColor?.id === color.id
-                          ? 'border-indigo-600 bg-indigo-50 text-indigo-900'
-                          : 'border-gray-300 text-gray-700 hover:border-gray-400'
-                      }`}
+                      className={`px-4 py-2 rounded-lg border-2 transition-all font-medium ${selectedColor?.id === color.id
+                        ? 'border-indigo-600 bg-indigo-50 text-indigo-900'
+                        : 'border-gray-300 text-gray-700 hover:border-gray-400'
+                        }`}
                     >
                       {color.name[lang]}
                     </button>
@@ -199,11 +197,10 @@ const ProductDetailPage = ({ lang, t }) => {
                     <button
                       key={size}
                       onClick={() => setSelectedSize(size)}
-                      className={`py-2 rounded-lg border-2 transition-all font-medium text-center ${
-                        selectedSize === size
-                          ? 'border-indigo-600 bg-indigo-600 text-white'
-                          : 'border-gray-300 text-gray-700 hover:border-gray-400'
-                      }`}
+                      className={`py-2 rounded-lg border-2 transition-all font-medium text-center ${selectedSize === size
+                        ? 'border-indigo-600 bg-indigo-600 text-white'
+                        : 'border-gray-300 text-gray-700 hover:border-gray-400'
+                        }`}
                     >
                       {size}
                     </button>
@@ -245,9 +242,9 @@ const ProductDetailPage = ({ lang, t }) => {
                 className="w-full px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-bold text-lg rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371 0-.57 0-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.255.949c-1.238.503-2.335 1.236-3.22 2.121-.885.885-1.618 1.982-2.121 3.22a9.868 9.868 0 00-.949 4.255c0 1.594.287 3.131.849 4.594l-1.296 4.74 4.857-1.273c1.432.537 2.921.817 4.486.817h.005c5.424 0 9.835-4.41 9.835-9.835 0-2.632-.636-5.114-1.77-7.303a9.902 9.902 0 00-2.663-3.06 9.888 9.888 0 00-3.81-1.67 10.005 10.005 0 00-4.017-.819M8.5 0C3.813 0 0 3.813 0 8.5 0 13.187 3.813 17 8.5 17c1.136 0 2.211-.244 3.2-.682l3.72.973-.975-3.559A8.48 8.48 0 0117 8.5C17 3.813 13.187 0 8.5 0"/>
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371 0-.57 0-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.255.949c-1.238.503-2.335 1.236-3.22 2.121-.885.885-1.618 1.982-2.121 3.22a9.868 9.868 0 00-.949 4.255c0 1.594.287 3.131.849 4.594l-1.296 4.74 4.857-1.273c1.432.537 2.921.817 4.486.817h.005c5.424 0 9.835-4.41 9.835-9.835 0-2.632-.636-5.114-1.77-7.303a9.902 9.902 0 00-2.663-3.06 9.888 9.888 0 00-3.81-1.67 10.005 10.005 0 00-4.017-.819M8.5 0C3.813 0 0 3.813 0 8.5 0 13.187 3.813 17 8.5 17c1.136 0 2.211-.244 3.2-.682l3.72.973-.975-3.559A8.48 8.48 0 0117 8.5C17 3.813 13.187 0 8.5 0" />
                 </svg>
-                Contacter sur WhatsApp
+                Je ne trouve pas ma couleur
               </button>
             </div>
 

@@ -41,7 +41,7 @@ const CheckoutModal = ({ isOpen, onClose, cart, total, lang }) => {
       }
 
       // --- FACTURE PROFESSIONNEL ---
-      const phoneNumber = "221761421653";
+      const phoneNumber = "221768352101";
       let message = `*════════════════════════*\n`;
       message += `*COMMANDE BABOUCHE MARRAKECH* 🛍️\n`;
       message += `*════════════════════════*\n\n`;
