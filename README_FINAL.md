@@ -239,7 +239,7 @@ Vérifier/Configurer:
 ```javascript
 // 1. Numéro WhatsApp
    src/components/CheckoutModal.jsx
-   const phoneNumber = "221761421653";  // ← À VÉRIFIER
+   const phoneNumber = "221768352101";  // ← À VÉRIFIER
 
 // 2. Tarifs Livraison
    src/components/DeliveryOptions.jsx
